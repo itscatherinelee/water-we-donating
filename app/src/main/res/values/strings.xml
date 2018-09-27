@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">WaterWeDonating</string>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_registration">Registration</string>
 </resources>

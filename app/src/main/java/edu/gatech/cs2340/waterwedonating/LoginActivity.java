@@ -14,6 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
     private Button login;
     private TextView info;
+    private Button registration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +25,18 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.txt_password);
         login = findViewById(R.id.btn_login);
         info = findViewById(R.id.txt_info);
+        registration = findViewById(R.id.btn_registerhere);
 
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Validate(username.getText().toString(), password.getText().toString());
+            }
+        });
+
+        registration.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent2 = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent2);
             }
         });
     }

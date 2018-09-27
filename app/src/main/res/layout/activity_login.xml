@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     tools:context=".LoginActivity">
-3
+
     <ImageView
         android:id="@+id/company_logo"
         android:layout_width="164dp"
@@ -20,57 +20,11 @@
         android:id="@+id/txt_username"
         android:layout_width="220dp"
         android:layout_height="30dp"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="234dp"
+        android:layout_below="@+id/company_logo"
+        android:layout_marginTop="40dp"
         android:background="@drawable/et_box"
         android:ems="10"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         android:fontFamily="sans-serif"
         android:hint="  Username"
         android:inputType="textPersonName" />
@@ -79,9 +33,9 @@
         android:id="@+id/txt_password"
         android:layout_width="220dp"
         android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/txt_username"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="256dp"
         android:background="@drawable/et_box"
         android:ems="10"
         android:fontFamily="sans-serif"
@@ -90,8 +44,8 @@
         android:src="@drawable/password_icon" />
 
     <Button
-        android:id="@+id/btn_register"
-        android:layout_width="100dp"
+        android:id="@+id/btn_registerhere"
+        android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
@@ -99,9 +53,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
         android:fontFamily="sans-serif"
-        android:text="Register Here"
-        android:background="#00FFFFFF"/>
+        android:text="Register Here" />
 
     <ImageView
         android:id="@+id/user_icon"
@@ -121,20 +75,20 @@
 
     <Button
         android:id="@+id/btn_login"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/txt_info"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="144dp"
         android:background="@drawable/et_loginbox"
         android:text="Login" />
 
     <TextView
         android:id="@+id/txt_info"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/txt_password"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="212dp"
         android:textColor="#FFFFFF" />
 </RelativeLayout>
