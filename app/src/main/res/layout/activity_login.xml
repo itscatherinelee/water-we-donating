@@ -18,10 +18,10 @@
 
     <EditText
         android:id="@+id/txt_username"
-        android:layout_width="220dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/company_logo"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:background="@drawable/et_box"
         android:ems="10"
@@ -59,16 +59,16 @@
 
     <ImageView
         android:id="@+id/user_icon"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignTop="@+id/txt_username"
         android:layout_toStartOf="@+id/txt_username"
         android:src="@drawable/user_icon" />
 
     <ImageView
         android:id="@+id/password_icon"
-        android:layout_width="34dp"
-        android:layout_height="32dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignTop="@+id/txt_password"
         android:layout_toStartOf="@+id/txt_username"
         android:src="@drawable/password_icon" />
