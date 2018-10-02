@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient";
     tools:context=".RegistrationActivity">
 
     <Button
@@ -12,6 +13,55 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="199dp"
+        android:layout_marginBottom="91dp"
         android:text="Sign Up" />
+
+    <EditText
+        android:id="@+id/txt_nameReg"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="206dp"
+        android:background="@drawable/et_box"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="   Enter your username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txt_pwReg1"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/et_box"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="  Enter your password"
+        android:inputType="textPassword"
+        android:src="@drawable/password_icon" />
+
+    <EditText
+        android:id="@+id/txt_pwReg2"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="202dp"
+        android:background="@drawable/et_box"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="  Re-enter your password"
+        android:inputType="textPassword"
+        android:src="@drawable/password_icon" />
+
+    <TextView
+        android:id="@+id/txt_infoReg"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="164dp" />
+
+
 </RelativeLayout>
