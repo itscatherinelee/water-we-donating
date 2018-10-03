@@ -17,7 +17,7 @@
         android:src="@drawable/companylogo" />
 
     <EditText
-        android:id="@+id/txt_username"
+        android:id="@+id/txt_nameReg"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_below="@+id/company_logo"
@@ -30,10 +30,10 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/txt_password"
+        android:id="@+id/txt_pwReg1"
         android:layout_width="220dp"
         android:layout_height="30dp"
-        android:layout_below="@id/txt_username"
+        android:layout_below="@id/txt_nameReg"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/et_box"
@@ -61,16 +61,16 @@
         android:id="@+id/user_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignTop="@+id/txt_username"
-        android:layout_toStartOf="@+id/txt_username"
+        android:layout_alignTop="@+id/txt_nameReg"
+        android:layout_toStartOf="@+id/txt_nameReg"
         android:src="@drawable/user_icon" />
 
     <ImageView
         android:id="@+id/password_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignTop="@+id/txt_password"
-        android:layout_toStartOf="@+id/txt_username"
+        android:layout_alignTop="@+id/txt_pwReg1"
+        android:layout_toStartOf="@+id/txt_nameReg"
         android:src="@drawable/password_icon" />
 
     <Button
@@ -88,7 +88,7 @@
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_password"
+        android:layout_below="@id/txt_pwReg1"
         android:layout_centerHorizontal="true"
         android:textColor="#FFFFFF" />
 </RelativeLayout>
