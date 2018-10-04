@@ -2,10 +2,7 @@ package edu.gatech.cs2340.waterwedonating;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,27 +13,23 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private EditText username;
-    private EditText password;
-    private Button login;
-    private TextView info;
-    private Button registration;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private TextView userName;
-    private TextView uid;
+    private TextView Uid;
     private Button logout;
+    private TextView names;
+    private TextView types;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_profile);
 
-        username = findViewById(R.id.txt_nameReg); //assigns variable to editText ID
-        password = findViewById(R.id.txt_pwReg1);
-        login = findViewById(R.id.btn_login);
-        info = findViewById(R.id.txt_info);
-        registration = findViewById(R.id.btn_registerhere);
+        types = findViewById(R.id.typeE);
+        names = findViewById(R.id.nameId);
+        userName = findViewById(R.id.userName);
+        Uid = findViewById(R.id.uid1);
         logout = findViewById(R.id.btn_logout);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -44,14 +37,16 @@ public class ProfileActivity extends AppCompatActivity {
         if (user != null){
             String username = user.getEmail();
             String uid = user.getUid();
-            Email.setText(email);
+//            names.setText(name);
+//            types.setText(type);
+            userName.setText(username.substring(0,username.indexOf('@')));
             Uid.setText(uid);
         }
 
 
         logout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(SecondActivity.this, LoginActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient";
+    android:background="@drawable/gradient"
     tools:context=".RegistrationActivity">
 
     <Button
@@ -17,8 +17,8 @@
         android:text="Sign Up" />
 
     <EditText
-        android:id="@+id/txt_nameReg"
-        android:layout_width="wrap_content"
+        android:id="@+id/Names_reg"
+        android:layout_width="294dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -26,33 +26,34 @@
         android:background="@drawable/et_box"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="   Enter your username"
+        android:hint="  Enter Name"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/txt_pwReg1"
-        android:layout_width="220dp"
+        android:id="@+id/pass_reg"
+        android:layout_width="298dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="201dp"
+        android:background="@drawable/et_box"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="  Enter Password (Min 7 Characters)"
+        android:inputType="textPassword"
+        android:src="@drawable/password_icon"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/userName_reg"
+        android:layout_width="289dp"
         android:layout_height="30dp"
         android:layout_centerInParent="true"
         android:background="@drawable/et_box"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="  Enter your password"
-        android:inputType="textPassword"
-        android:src="@drawable/password_icon" />
-
-    <EditText
-        android:id="@+id/txt_pwReg2"
-        android:layout_width="220dp"
-        android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="202dp"
-        android:background="@drawable/et_box"
-        android:ems="10"
-        android:fontFamily="sans-serif"
-        android:hint="  Re-enter your password"
-        android:inputType="textPassword"
+        android:hint="  Enter Username"
+        android:inputType="textEmailAddress"
         android:src="@drawable/password_icon" />
 
     <TextView
@@ -62,6 +63,35 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="164dp" />
+
+    <TextView
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp"
+        android:gravity="center"
+        android:text="COPYRIGHT © | 2018 WATERWECODING"
+        android:textColor="#000" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="139dp" />
+
+    <TextView
+        android:id="@+id/ChooseType"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:text="Choose Type of User"
+        android:textSize="18sp" />
 
 
 </RelativeLayout>
