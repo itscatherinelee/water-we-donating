@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/company_logo"
-        android:layout_width="164dp"
-        android:layout_height="105dp"
+        android:layout_width="292dp"
+        android:layout_height="175dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/companylogo" />
+        android:layout_marginTop="45dp"
+        android:src="@drawable/customlogo" />
 
     <EditText
-        android:id="@+id/txt_nameReg"
+        android:id="@+id/Names_reg"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_below="@+id/company_logo"
@@ -30,12 +30,12 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/txt_pwReg1"
-        android:layout_width="220dp"
+        android:id="@+id/pass_reg"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_below="@id/txt_nameReg"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/Names_reg"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/et_box"
         android:ems="10"
         android:fontFamily="sans-serif"
@@ -53,24 +53,25 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="#00FFFFFF"
+        android:background="#003366"
         android:fontFamily="sans-serif"
-        android:text="Register Here" />
+        android:text="Register Here"
+        android:textColor="#ffffff" />
 
     <ImageView
         android:id="@+id/user_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignTop="@+id/txt_nameReg"
-        android:layout_toStartOf="@+id/txt_nameReg"
+        android:layout_alignTop="@+id/Names_reg"
+        android:layout_toStartOf="@+id/Names_reg"
         android:src="@drawable/user_icon" />
 
     <ImageView
         android:id="@+id/password_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignTop="@+id/txt_pwReg1"
-        android:layout_toStartOf="@+id/txt_nameReg"
+        android:layout_alignTop="@+id/pass_reg"
+        android:layout_toStartOf="@+id/Names_reg"
         android:src="@drawable/password_icon" />
 
     <Button
@@ -88,7 +89,7 @@
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_pwReg1"
+        android:layout_below="@id/pass_reg"
         android:layout_centerHorizontal="true"
         android:textColor="#FFFFFF" />
 </RelativeLayout>
