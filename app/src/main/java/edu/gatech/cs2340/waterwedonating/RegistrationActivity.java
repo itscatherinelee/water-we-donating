@@ -29,10 +29,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
         signUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Validate(passwordReg1.getText().toString(), passwordReg2.getText().toString());
+                Validate(passwordReg1.getText().toString(), passwordReg1.getText().toString());
             }
         });
-
 
     }
 
