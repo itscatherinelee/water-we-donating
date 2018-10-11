@@ -20,6 +20,7 @@ public class ProfileActivity extends AppCompatActivity {
     private Button logout;
     private TextView names;
     private TextView types;
+    private Button viewLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
         logout = findViewById(R.id.btn_logout);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+        viewLocation = findViewById(R.id.viewLocation);
 
         if (user != null){
             String username = user.getEmail();
@@ -48,6 +50,12 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        viewLocation.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, LocationActivity.class));
             }
         });
     }

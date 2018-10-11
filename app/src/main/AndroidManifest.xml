@@ -21,6 +21,7 @@
             android:label="@string/title_activity_second"
             android:theme="@style/AppTheme" />
         <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".LocationActivity"></activity>
     </application>
 
 </manifest>

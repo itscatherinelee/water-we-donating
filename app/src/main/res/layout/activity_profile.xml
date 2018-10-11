@@ -7,6 +7,15 @@
     android:background="@drawable/gradient"
     tools:context=".ProfileActivity">
 
+    <Button
+        android:id="@+id/viewLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="86dp"
+        android:text="View Location" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
