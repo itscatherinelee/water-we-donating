@@ -1,21 +1,29 @@
 {
   "project_info": {
-    "project_number": "139213111362",
-    "firebase_url": "https://waterwedonating1.firebaseio.com",
-    "project_id": "waterwedonating1",
-    "storage_bucket": "waterwedonating1.appspot.com"
+    "project_number": "465374403098",
+    "firebase_url": "https://waterwedonating-6d96c.firebaseio.com",
+    "project_id": "waterwedonating-6d96c",
+    "storage_bucket": "waterwedonating-6d96c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:139213111362:android:b184dbdc872ead50",
+        "mobilesdk_app_id": "1:465374403098:android:b184dbdc872ead50",
         "android_client_info": {
           "package_name": "edu.gatech.cs2340.waterwedonating"
         }
       },
       "oauth_client": [
         {
-          "client_id": "139213111362-r1ijhae9c6sv4kl1or9dn14acicogbg9.apps.googleusercontent.com",
+          "client_id": "465374403098-hb3sedmhppe49tqsncn3gb8qs62t53nq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.cs2340.waterwedonating",
+            "certificate_hash": "348a8b3fd3f8b8d6f6e280a807847b0356090770"
+          }
+        },
+        {
+          "client_id": "465374403098-slcsbbikbncq5pn5qbm7j8dkeg4eku69.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "edu.gatech.cs2340.waterwedonating",
@@ -23,13 +31,13 @@
           }
         },
         {
-          "client_id": "139213111362-5gg2g2pp9b80og35icvdjg5nglmef82s.apps.googleusercontent.com",
+          "client_id": "465374403098-hehepq2qbkh2rmssdgagsb66a91gv6lp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAi2KPRs9r_zxeiI0VOE-YeecdMIdWTzPg"
+          "current_key": "AIzaSyA3Tt-skCVG6LJn6T9wp1wEbk2ZOzxi9OA"
         }
       ],
       "services": {
@@ -40,7 +48,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "139213111362-5gg2g2pp9b80og35icvdjg5nglmef82s.apps.googleusercontent.com",
+              "client_id": "465374403098-hehepq2qbkh2rmssdgagsb66a91gv6lp.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
