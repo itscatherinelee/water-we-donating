@@ -22,6 +22,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".RegistrationActivity"></activity>
         <activity android:name=".LocationActivity"></activity>
+        <activity android:name=".ItemDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -39,8 +39,8 @@ public class ProfileActivity extends AppCompatActivity {
         if (user != null){
             String username = user.getEmail();
             String uid = user.getUid();
-//            names.setText(name);
-//            types.setText(type);
+//          names.setText(name);
+//           types.setText(type);
             userName.setText(username.substring(0,username.indexOf('@')));
             Uid.setText(uid);
         }
