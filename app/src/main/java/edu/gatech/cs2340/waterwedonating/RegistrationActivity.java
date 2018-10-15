@@ -21,6 +21,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class RegistrationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private EditText nameReg;
@@ -36,7 +40,7 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        String[] userType ={"Admin","Employee","User"};
+        String[] users ={"Admin","Employee","User"};
         final List<String> userType = new ArrayList<>(Arrays.asList(users));
         Spinner spin = (Spinner) findViewById(R.id.spinner1);
         spin.setOnItemSelectedListener(this);

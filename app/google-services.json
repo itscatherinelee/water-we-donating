@@ -16,7 +16,6 @@
       "oauth_client": [
         {
           "client_id": "465374403098-hb3sedmhppe49tqsncn3gb8qs62t53nq.apps.googleusercontent.com",
-<<<<<<< HEAD
           "client_type": 1,
           "android_info": {
             "package_name": "edu.gatech.cs2340.waterwedonating",
@@ -25,8 +24,6 @@
         },
         {
           "client_id": "465374403098-slcsbbikbncq5pn5qbm7j8dkeg4eku69.apps.googleusercontent.com",
-=======
->>>>>>> M6
           "client_type": 1,
           "android_info": {
             "package_name": "edu.gatech.cs2340.waterwedonating",
