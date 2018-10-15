@@ -31,12 +31,13 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
     private Button signUp;
     private FirebaseAuth mAuth;
 
-    String[] userType ={"Admin","Employee","User"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        String[] userType ={"Admin","Employee","User"};
+        final List<String> userType = new ArrayList<>(Arrays.asList(users));
         Spinner spin = (Spinner) findViewById(R.id.spinner1);
         spin.setOnItemSelectedListener(this);
 
@@ -62,7 +63,8 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
     }
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
-        Toast.makeText(getApplicationContext(), userType[position], Toast.LENGTH_LONG).show();
+        type = (String) arg0.getItemAtPosition(position);
+        Toast.makeText(getApplicationContext(), type, Toast.LENGTH_LONG).show();
     }
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
@@ -99,6 +101,13 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                                 Toast.makeText(RegistrationActivity.this, "Registration Successful",
                                         Toast.LENGTH_SHORT).show();
                                 finish();
+                                Bundle extras = new Bundle();
+                                extras.putString("Username",usernameReg.getText().toString());
+                                extras.putString("Name",nameReg.getText().toString());
+                                extras.putString("Type",type);
+                                Intent intent = new Intent(RegistrationActivity.this, ProfileActivity.class);
+                                intent.putExtras(extras);
+                                startActivity(intent);
                                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                             } else {
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed, Try Again", Toast.LENGTH_SHORT).show();
