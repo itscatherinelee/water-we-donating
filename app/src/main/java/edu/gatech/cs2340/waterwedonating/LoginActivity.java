@@ -68,14 +68,20 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-    private void logon(String userName, String passWord) {
+    private void logon(final String userName, String passWord) {
         mAuth.signInWithEmailAndPassword(userName, passWord).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     currentUser = mAuth.getCurrentUser();
                     finish();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    Bundle extras = new Bundle();
+                    extras.putString("Username",username.getText().toString());
+                    extras.putString("Name",username.getText().toString());
+                    extras.putString("Type",info.getText().toString());
+                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    intent.putExtras(extras);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Login Failed. Try Again", Toast.LENGTH_SHORT).show();
                 }
