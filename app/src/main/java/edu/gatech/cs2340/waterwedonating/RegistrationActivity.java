@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,15 +16,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -105,14 +113,33 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                                 Toast.makeText(RegistrationActivity.this, "Registration Successful",
                                         Toast.LENGTH_SHORT).show();
                                 finish();
-                                Bundle extras = new Bundle();
-                                extras.putString("Username",usernameReg.getText().toString());
-                                extras.putString("Name",nameReg.getText().toString());
-                                extras.putString("Type",type);
-                                Intent intent = new Intent(RegistrationActivity.this, ProfileActivity.class);
-                                intent.putExtras(extras);
-                                startActivity(intent);
-                                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                                        .setTimestampsInSnapshotsEnabled(true)
+                                        .build();
+                                db.setFirestoreSettings(settings);
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("UserType", type);
+                                user.put("Name", nameReg.getText().toString());
+                                user.put("Username", usernameReg.getText().toString());
+                                db.collection("users").document(mAuth.getUid())
+                                        .set(user)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            public static final String TAG = "";
+
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "DocumentSnapshot successfully written!");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            public static final String TAG = "";
+
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w(TAG, "Error writing document", e);
+                                            }
+                                        });
                             } else {
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed, Try Again", Toast.LENGTH_SHORT).show();
                             }

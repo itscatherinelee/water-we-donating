@@ -45,7 +45,7 @@ public class LocationActivity extends Activity implements OnItemClickListener {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(LocationActivity.this, ProfileActivity.class);
+                Intent intent2 = new Intent(LocationActivity.this, LoginActivity.class);
                 startActivity(intent2);
             }
         });
