@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         if (android.util.Patterns.EMAIL_ADDRESS.matcher(userName).matches()) {
             logon(userName, passWord);
         } else if (!userName.contains("@")) {
-            logon(username + "@email.com", passWord);
+            logon(userName + "@email.com", passWord);
         }
 
     }
@@ -72,16 +72,10 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(userName, passWord).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
+                if (task.isSuccessful() ) {
                     currentUser = mAuth.getCurrentUser();
                     finish();
-                    Bundle extras = new Bundle();
-                    extras.putString("Username",username.getText().toString());
-                    extras.putString("Name",username.getText().toString());
-                    extras.putString("Type",info.getText().toString());
-                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                    intent.putExtras(extras);
-                    startActivity(intent);
+                    startActivity(new Intent(LoginActivity.this, LocationActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Login Failed. Try Again", Toast.LENGTH_SHORT).show();
                 }

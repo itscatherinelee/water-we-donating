@@ -23,6 +23,7 @@
         <activity android:name=".RegistrationActivity"></activity>
         <activity android:name=".LocationActivity"></activity>
         <activity android:name=".ItemDetailActivity"></activity>
+        <activity android:name=".donationActivity"></activity>
     </application>
 
 </manifest>
