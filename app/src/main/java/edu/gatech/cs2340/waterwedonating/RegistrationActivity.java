@@ -140,6 +140,7 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                                                 Log.w(TAG, "Error writing document", e);
                                             }
                                         });
+                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                             } else {
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed, Try Again", Toast.LENGTH_SHORT).show();
                             }

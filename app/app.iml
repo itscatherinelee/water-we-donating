@@ -120,13 +120,13 @@
     <orderEntry type="library" name="Gradle: com.android.support:documentfile-28.0.0-rc02" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-16.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:print-28.0.0-rc02" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:28.0.0-rc02@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:interpolator-28.0.0-rc02" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:versionedparcelable-28.0.0-rc02" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common-16.0.3" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.7@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-flags-16.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:loader-28.0.0-rc02" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:cardview-v7-28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-28.0.0-rc02" level="project" />
     <orderEntry type="library" name="Gradle: io.grpc:grpc-context:1.12.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1@jar" level="project" />
@@ -144,6 +144,7 @@
     <orderEntry type="library" name="Gradle: android.arch.core:runtime-1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:20.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:monitor-1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:28.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:slidingpanelayout-28.0.0-rc02" level="project" />
     <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-lite:3.0.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:cursoradapter-28.0.0-rc02" level="project" />
@@ -170,7 +171,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: io.grpc:grpc-core:1.12.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:cardview-v7-28.0.0-rc02" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:viewpager-28.0.0-rc02" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-idling-resource-3.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:localbroadcastmanager-28.0.0-rc02" level="project" />
