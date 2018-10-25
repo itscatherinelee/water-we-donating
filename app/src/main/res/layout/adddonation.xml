@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".donationActivity">
+
+    <TextView
+        android:id="@+id/donationdrop1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Donation Drop-off"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Stamp"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Location"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="247dp" />
+
+    <EditText
+        android:id="@+id/shortDescript"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Short Description"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+    <EditText
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Value in dollars"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="418dp" />
+
+    <EditText
+        android:id="@+id/itemType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Type of item"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="478dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Description 2"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <EditText
+        android:id="@+id/fullDescript"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="Full Description of Item"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="354dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Value"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="429dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Category"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="491dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description 1"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="307dp" />
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="247dp" />
+
+</RelativeLayout>
