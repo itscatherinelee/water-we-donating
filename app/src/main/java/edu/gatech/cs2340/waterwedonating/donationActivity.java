@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.waterwedonating;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -25,23 +26,25 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 
 public class donationActivity extends AppCompatActivity {
 
+    private EditText money;
     private EditText shortDescription;
     private EditText fullDescription;
-    private EditText val;
     private EditText category;
     private TextView times;
     private TextView location;
     private FirebaseAuth mAuth;
     private Button submit;
+    private Button viewDonation;
     String shortDescript = "";
     String fullDescript = "";
-    String values = "";
     String cat = "";
     String locations = "";
     String dateStr = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +56,11 @@ public class donationActivity extends AppCompatActivity {
         location = findViewById(R.id.location);
         shortDescription = findViewById(R.id.shortDescript);
         fullDescription = findViewById(R.id.fullDescript);
-        val = findViewById(R.id.value);
+        money = findViewById(R.id.dollarID);
         category = findViewById(R.id.itemType);
         mAuth = FirebaseAuth.getInstance();
-//        currentUser = mAuth.getCurrentUser();
-        Long tsLong = System.currentTimeMillis() / 100;
+        viewDonation = findViewById(R.id.viewDonate);
+        Long tsLong = System.currentTimeMillis();
         Date date = new Date(tsLong);
 
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
@@ -69,7 +72,6 @@ public class donationActivity extends AppCompatActivity {
         location.setText(locations);
         shortDescript = shortDescription.getText().toString();
         fullDescript = fullDescription.getText().toString();
-        values = val.getText().toString();
         cat = category.getText().toString();
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -78,19 +80,25 @@ public class donationActivity extends AppCompatActivity {
                 submitData();
             }
         });
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewData();
+            }
+        });
     }
     private void submitData() {
+        String moneyD = "";
         if (shortDescription.getText().toString().length() > 2) {
             shortDescript = shortDescription.getText().toString();
             fullDescript = fullDescription.getText().toString();
         } else {
             Toast.makeText(this, "Description too short", Toast.LENGTH_SHORT).show();
         }
-        if (values.matches("^\\$(([1-9]\\d{0,2}(,\\d{3})*)|(([1-9]\\d*)?\\d))(\\.\\d\\d)?$\n" +
-                "\n")) {
-            values = val.getText().toString();
+        if (money.getText().toString().matches("^[0-9,.$]*$")) {
+            moneyD = money.getText().toString();
         } else {
-            Toast.makeText(this, values, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Invalid amount", Toast.LENGTH_SHORT).show();
         }
         String cC = category.getText().toString();
         if (cC.equals("Clothing") || cC.equals("Household") || cC.equals("Toys") || cC.equals("Electronics") || cC.equals("Blood") || cC.equals("Food")) {
@@ -99,15 +107,18 @@ public class donationActivity extends AppCompatActivity {
             Toast.makeText(this, "Not a valid donation item", Toast.LENGTH_SHORT).show();
         }
 
-        donationData donate = new donationData(dateStr,locations,shortDescript,fullDescript,values,cat);
+        String uuid = UUID.randomUUID().toString().replace("-","");
+
+
+        donationData donate = new donationData(dateStr,locations,shortDescript,fullDescript,moneyD,cat);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("donations").document(locations)
-                .set(donate)
+        db.collection("donations").document(locations).collection(cat).document(uuid).set(donate)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     public static final String TAG = "";
 
                     @Override
                     public void onSuccess(Void aVoid) {
+                        Toast.makeText(donationActivity.this, "Donation Added, Thank You!", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "DocumentSnapshot successfully written!");
                     }
                 })
@@ -116,10 +127,15 @@ public class donationActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(donationActivity.this, "Donation Attempt Failed. Try Again", Toast.LENGTH_SHORT).show();
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
     }
+    private void viewData() {
+
+    }
+
     }
 
 
