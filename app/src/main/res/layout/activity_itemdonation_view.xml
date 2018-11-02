@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp">
+
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:fontFamily="serif"
+                android:text="Donation Data"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemView"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:fontFamily="serif"
+                android:text="item"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/locationView"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:text="location"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/fullView"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Full Description"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/valueView"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Value"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/categoryView"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:text="Category"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/timeView"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Time stamp"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/closeB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Close" />
+        </LinearLayout>
+
+</LinearLayout>

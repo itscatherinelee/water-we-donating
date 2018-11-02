@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".donationActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/headerTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Donation Information"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#345"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/timestamps"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:paddingTop="20dp"
+            android:text="Donation Time"
+            android:textColor="#345"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/locationSelecter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/shortDescript"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:hint="Enter Short Description of Item"
+            android:singleLine="true" />
+
+
+        <EditText
+            android:id="@+id/fullDescript"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:hint="Enter Full Description of Item" />
+
+        <Spinner
+            android:id="@+id/categorySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/values"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:hint="Enter Dollar Value"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#345"
+            android:text="Save"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/closeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Close" />
+
+    </LinearLayout>
+
+</LinearLayout>
