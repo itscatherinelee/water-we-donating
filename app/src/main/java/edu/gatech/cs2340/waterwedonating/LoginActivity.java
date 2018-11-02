@@ -26,7 +26,10 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
-
+    /**
+     * goes from login to registration activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +58,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * if user tries to input anything empty, will throw error message
+     * user can use first part of email handle to log in
+     */
     private void LoginUser() {
         String userName = username.getText().toString().trim();
         String passWord = password.getText().toString().trim();

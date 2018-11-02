@@ -43,6 +43,10 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
     private Button signUp;
     private FirebaseAuth mAuth;
 
+    /**
+     * creates admin, employee, and user users
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

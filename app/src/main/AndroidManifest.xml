@@ -24,6 +24,10 @@
         <activity android:name=".LocationActivity"></activity>
         <activity android:name=".ItemDetailActivity"></activity>
         <activity android:name=".donationActivity"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
