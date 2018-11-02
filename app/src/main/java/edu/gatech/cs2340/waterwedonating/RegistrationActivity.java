@@ -23,6 +23,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
@@ -41,7 +43,12 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
     private String type;
     private TextView infoReg;
     private Button signUp;
+    private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference myRef;
+    private FirebaseUser user;
+    private ArrayList<userInformation> localData = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +71,11 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         type = spin.getSelectedItem().toString();
         infoReg = findViewById(R.id.txt_infoReg);
         signUp = findViewById(R.id.btn_signUp);
+
         mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebaseDatabase.getReference();
+        user = mAuth.getCurrentUser();
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,37 +121,15 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         try {
                             if (task.isSuccessful()) {
+                                userInformation users = new userInformation(type, nameReg.getText().toString(), usernameReg.getText().toString(), user.getUid());
+                                localData.add(users);
+                                myRef.child("users").child(user.getUid()).setValue(users);
                                 Toast.makeText(RegistrationActivity.this, "Registration Successful",
                                         Toast.LENGTH_SHORT).show();
                                 finish();
-                                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                                FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
-                                        .setTimestampsInSnapshotsEnabled(true)
-                                        .build();
-                                db.setFirestoreSettings(settings);
-                                Map<String, Object> user = new HashMap<>();
-                                user.put("UserType", type);
-                                user.put("Name", nameReg.getText().toString());
-                                user.put("Username", usernameReg.getText().toString());
-                                db.collection("users").document(mAuth.getUid())
-                                        .set(user)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            public static final String TAG = "";
-
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                Log.d(TAG, "DocumentSnapshot successfully written!");
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            public static final String TAG = "";
-
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Log.w(TAG, "Error writing document", e);
-                                            }
-                                        });
-                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                                intent.putExtra("userData",localData);
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed, Try Again", Toast.LENGTH_SHORT).show();
                             }

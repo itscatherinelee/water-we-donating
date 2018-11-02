@@ -3,16 +3,22 @@ package edu.gatech.cs2340.waterwedonating;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -49,40 +55,15 @@ public class ItemDetailActivity extends Activity{
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private Button addDonation;
+    private DatabaseReference myRef;
     String[] values;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listitem);
-        addDonation = findViewById(R.id.addDonation);
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
-        String uid = currentUser.getUid();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference info =  db.collection("users").document(uid);
 
-        info.get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    public static final String TAG = "";
-
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot doc = task.getResult();
-                            String type = doc.get("UserType").toString();
-                            if (!(type.equals("Admin") || type.equals("Employee"))) {
-                                addDonation.setVisibility(View.GONE);
-                            } else {
-                                addDonation.setVisibility(View.VISIBLE);
-                            }
-
-                        } else {
-                            Log.w(TAG, "Error getting documents.", task.getException());
-                        }
-                    }
-                });
-        key1 = findViewById(R.id.key1);
+            key1 = findViewById(R.id.key1);
         value1 = findViewById(R.id.value1);
         key2 = findViewById(R.id.key2);
         value2 = findViewById(R.id.value2);
@@ -126,7 +107,7 @@ public class ItemDetailActivity extends Activity{
         key9.setText(keys[8]);
         key10.setText(keys[9]);
         key11.setText(keys[10]);
-        
+
         value1.setText(values[0]);
         value2.setText(values[1]);
         value3.setText(values[2]);
@@ -139,13 +120,5 @@ public class ItemDetailActivity extends Activity{
         value10.setText(values[9]);
         value11.setText(values[10]);
 
-        addDonation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),donationActivity.class);
-                intent.putExtra("Location", values[1]);
-                startActivity(intent);
-            }
-        });
     }
 }

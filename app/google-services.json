@@ -27,7 +27,15 @@
           "client_type": 1,
           "android_info": {
             "package_name": "edu.gatech.cs2340.waterwedonating",
-            "certificate_hash": "348a8b3fd3f8b8d6f6e280a807847b0356090770"
+            "certificate_hash": "b8db7433041d095da7e0b1a1d4b05882869715e6"
+          }
+        },
+        {
+          "client_id": "465374403098-hi3jb34fmuvql5b7edvdmketqug0j5ql.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.cs2340.waterwedonating",
+            "certificate_hash": "5b645348ad4121b7cc8bccacee9ea112f0a20fa8"
           }
         },
         {

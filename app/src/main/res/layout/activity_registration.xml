@@ -26,7 +26,7 @@
         android:background="@drawable/et_box"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="  Enter Name"
+        android:hint=" Enter Name"
         android:inputType="textPersonName" />
 
     <EditText
@@ -52,7 +52,7 @@
         android:background="@drawable/et_box"
         android:ems="10"
         android:fontFamily="sans-serif"
-        android:hint="  Enter Username"
+        android:hint=" Enter Username or Email"
         android:inputType="textEmailAddress"
         android:src="@drawable/password_icon" />
 

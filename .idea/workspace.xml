@@ -4,18 +4,23 @@
     <shared>
       <config>
         <devices>
-          <device id="Nexus 6" />
+          <device id="pixel_xl" />
           <device id="pixel_2_xl" />
+          <device id="pixel_2" />
         </devices>
       </config>
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="50040c01-3f10-4ae8-bda8-47ba9ac3c8b6" name="Default" comment="">
+    <list default="true" id="cda31547-c66b-4ac1-b606-f190b76e0fd6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" />
@@ -24,14 +29,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/WaterWeDonating.iml" afterPath="$PROJECT_DIR$/WaterWeDonating.iml" />
+      <change beforePath="$PROJECT_DIR$/WaterWeDonating" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/app/google-services.json" afterPath="$PROJECT_DIR$/app/google-services.json" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemDetailActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LocationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LocationActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ProfileActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/RegistrationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/RegistrationActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/adddonation.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adddonation.xml" />
-      <change beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationData.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationData.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_listitem.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_listitem.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_location.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_location.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/adddonation.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,55 +58,74 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="adddonation.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adddonation.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="2355">
-              <caret line="157" column="32" lean-forward="false" selection-start-line="157" selection-start-column="32" selection-end-line="157" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_login.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_profile.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="donationActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+            <state relative-caret-position="98">
+              <caret line="492" column="62" lean-forward="true" selection-start-line="492" selection-start-column="62" selection-end-line="492" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5711#5712#0" expanded="true" />
+                <element signature="e#5811#5812#0" expanded="true" />
+                <element signature="e#11379#11380#0" expanded="true" />
+                <element signature="e#11479#11480#0" expanded="true" />
+                <element signature="e#16167#16402#0" expanded="true" />
+                <element signature="e#16401#16402#0" expanded="true" />
+                <element signature="e#17367#17368#0" expanded="true" />
+                <element signature="e#17410#17411#0" expanded="true" />
+                <element signature="e#17475#17476#0" expanded="true" />
+                <element signature="e#17525#17526#0" expanded="true" />
+                <element signature="e#17590#17591#0" expanded="true" />
+                <element signature="e#17629#17630#0" expanded="true" />
+                <element signature="e#25145#26639#0" expanded="true" />
+                <element signature="e#26638#26639#0" expanded="true" />
+                <element signature="e#26693#26841#0" expanded="true" />
+                <element signature="e#26840#26841#0" expanded="true" />
+                <element signature="e#27336#27337#0" expanded="true" />
+                <element signature="e#27358#27359#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ProfileActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="41" column="57" lean-forward="false" selection-start-line="41" selection-start-column="57" selection-end-line="42" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_donation.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_donation.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LocationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,58 +133,51 @@
       <file leaf-file-name="donationData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="194">
+              <caret line="77" column="5" lean-forward="false" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemArrayAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemArrayAdapter.java">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemDetailActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemDetailActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocationReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LocationReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocationActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LocationActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="-518">
               <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="activity_donationlayout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_donationlayout.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="38" lean-forward="false" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="layoutResourceFile" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hgh</find>
+      <find>Error</find>
+      <find>findcat</find>
+      <find>temp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2194,17 +2219,39 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/adddonation.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/donationlist.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/dataListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/listsview.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationData.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationlistActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/donationactivity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_listitem.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemDetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_location.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_donationlayout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/userInformation.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/RegistrationActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_popupdonation.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_itemdonation_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ProfileActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LocationActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_donations.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_donation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="43" />
-    <option name="width" value="1260" />
-    <option name="height" value="686" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="726" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
       <flattenPackages />
@@ -2220,8 +2267,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2255,8 +2301,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2421,47 +2468,57 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="50040c01-3f10-4ae8-bda8-47ba9ac3c8b6" name="Default" comment="" />
-      <created>1540507065151</created>
+      <changelist id="cda31547-c66b-4ac1-b606-f190b76e0fd6" name="Default" comment="" />
+      <created>1540563334098</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1540507065151</updated>
+      <updated>1540563334098</updated>
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="43" width="1260" height="686" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33280507" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25767368" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2473,78 +2530,46 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adddonation.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="126" column="5" lean-forward="true" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
+        <state relative-caret-position="1380">
+          <caret line="122" column="55" lean-forward="false" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#5811#5812#0" expanded="true" />
+            <element signature="e#11379#11380#0" expanded="true" />
+            <element signature="e#11479#11480#0" expanded="true" />
+            <element signature="e#16167#16402#0" expanded="true" />
+            <element signature="e#16401#16402#0" expanded="true" />
+            <element signature="e#17367#17368#0" expanded="true" />
+            <element signature="e#17410#17411#0" expanded="true" />
+            <element signature="e#17475#17476#0" expanded="true" />
+            <element signature="e#17525#17526#0" expanded="true" />
+            <element signature="e#17590#17591#0" expanded="true" />
+            <element signature="e#17629#17630#0" expanded="true" />
+            <element signature="e#25145#26639#0" expanded="true" />
+            <element signature="e#26638#26639#0" expanded="true" />
+            <element signature="e#26693#26841#0" expanded="true" />
+            <element signature="e#26840#26841#0" expanded="true" />
+            <element signature="e#27336#27337#0" expanded="true" />
+            <element signature="e#27358#27359#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemArrayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="1200">
+          <caret line="80" column="84" lean-forward="false" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LocationReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="1875">
+          <caret line="144" column="16" lean-forward="false" selection-start-line="144" selection-start-column="16" selection-end-line="145" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -2560,15 +2585,161 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/donationlist.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listsview.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/dataListAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationlistActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#5811#5812#0" expanded="true" />
+            <element signature="e#11379#11380#0" expanded="true" />
+            <element signature="e#11479#11480#0" expanded="true" />
+            <element signature="e#16167#16402#0" expanded="true" />
+            <element signature="e#16401#16402#0" expanded="true" />
+            <element signature="e#17367#17368#0" expanded="true" />
+            <element signature="e#17410#17411#0" expanded="true" />
+            <element signature="e#17475#17476#0" expanded="true" />
+            <element signature="e#17525#17526#0" expanded="true" />
+            <element signature="e#17590#17591#0" expanded="true" />
+            <element signature="e#17629#17630#0" expanded="true" />
+            <element signature="e#25145#26639#0" expanded="true" />
+            <element signature="e#26638#26639#0" expanded="true" />
+            <element signature="e#26693#26841#0" expanded="true" />
+            <element signature="e#26840#26841#0" expanded="true" />
+            <element signature="e#27336#27337#0" expanded="true" />
+            <element signature="e#27358#27359#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="33" lean-forward="false" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+        <state relative-caret-position="1875">
+          <caret line="144" column="16" lean-forward="false" selection-start-line="144" selection-start-column="16" selection-end-line="145" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/donationlist.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationlistActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/donationlistActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listsview.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/donationlist.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/dataListAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationlistActivity.java" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="23" column="59" lean-forward="false" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adddonation.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_layout.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/userInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ItemDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2580,61 +2751,157 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_donations.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_listitem.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="50" lean-forward="false" selection-start-line="4" selection-start-column="50" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_location.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_popupdonation.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_donationlayout.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="38" lean-forward="false" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-518">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_itemdonation_view.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/RegistrationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="59" column="8" lean-forward="true" selection-start-line="59" selection-start-column="8" selection-end-line="64" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/ProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="41" column="57" lean-forward="false" selection-start-line="41" selection-start-column="57" selection-end-line="42" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_donation.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/LocationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="240">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="194">
+          <caret line="77" column="5" lean-forward="false" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adddonation.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="2355">
-          <caret line="157" column="32" lean-forward="false" selection-start-line="157" selection-start-column="32" selection-end-line="157" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-28/android.jar!/android/widget/AdapterView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="65" column="16" lean-forward="false" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/gatech/cs2340/waterwedonating/donationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+        <state relative-caret-position="98">
+          <caret line="492" column="62" lean-forward="true" selection-start-line="492" selection-start-column="62" selection-end-line="492" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#5811#5812#0" expanded="true" />
+            <element signature="e#11379#11380#0" expanded="true" />
+            <element signature="e#11479#11480#0" expanded="true" />
+            <element signature="e#16167#16402#0" expanded="true" />
+            <element signature="e#16401#16402#0" expanded="true" />
+            <element signature="e#17367#17368#0" expanded="true" />
+            <element signature="e#17410#17411#0" expanded="true" />
+            <element signature="e#17475#17476#0" expanded="true" />
+            <element signature="e#17525#17526#0" expanded="true" />
+            <element signature="e#17590#17591#0" expanded="true" />
+            <element signature="e#17629#17630#0" expanded="true" />
+            <element signature="e#25145#26639#0" expanded="true" />
+            <element signature="e#26638#26639#0" expanded="true" />
+            <element signature="e#26693#26841#0" expanded="true" />
+            <element signature="e#26840#26841#0" expanded="true" />
+            <element signature="e#27336#27337#0" expanded="true" />
+            <element signature="e#27358#27359#0" expanded="true" />
           </folding>
         </state>
       </provider>

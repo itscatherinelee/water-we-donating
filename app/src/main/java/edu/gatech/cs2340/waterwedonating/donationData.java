@@ -19,6 +19,14 @@ public class donationData {
         this.value = value;
         this.category = category;
     }
+    public donationData(String timestamp, String category) {
+        this.timestamp = timestamp;
+        this.location = null;
+        this.shortDescription = null;
+        this.fullDescription = null;
+        this.value = null;
+        this.category = category;
+    }
 
 
     public String getValue() {
@@ -67,5 +75,9 @@ public class donationData {
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+    public String toString() {
+        return "Timestamp: "+getTimestamp()+"/nCategory: "+getCategory()+"/nLocation: "+getLocation()+"/nShort Description: "+getShortDescription()
+                +"/nFull Description: "+getFullDescription()+"/nValue: "+getValue();
     }
 }
