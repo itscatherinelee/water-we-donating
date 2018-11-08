@@ -40,6 +40,7 @@ public class LocationActivity extends Activity implements OnItemClickListener {
     private DatabaseReference myRef;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
+    private Button mapButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class LocationActivity extends Activity implements OnItemClickListener {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
+        mapButton = findViewById(R.id.mapButton);
         backButton = findViewById(R.id.backButton);
         locationList = findViewById(R.id.locationList);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
@@ -105,6 +107,14 @@ public class LocationActivity extends Activity implements OnItemClickListener {
             @Override
             public void onClick(View view) {
                 Intent intent2 = new Intent(LocationActivity.this, LoginActivity.class);
+                startActivity(intent2);
+            }
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(LocationActivity.this, MapsActivity.class);
                 startActivity(intent2);
             }
         });
