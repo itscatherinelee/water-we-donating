@@ -6,13 +6,24 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class used to read location data
+ */
 public class LocationReader {
     InputStream inputStream;
 
+    /**
+     * COnstructor used to initialize InputStream
+     * @param inputStream accepts InputStream
+     */
     public LocationReader(InputStream inputStream) {
         this.inputStream = inputStream;
     }
 
+    /**
+     * Parses data
+     * @return a list of locations
+     */
     public List read() {
         List resultList = new ArrayList();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

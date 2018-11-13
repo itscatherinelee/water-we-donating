@@ -38,6 +38,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
+/**
+ * Class used to track all donations
+ */
 public class donationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //******************Inner class to add and retrieve data from firebase****************************
@@ -56,6 +59,15 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
         Spinner spin, spin1;
         String categoryChoice = "";
 
+        /**
+         * Constructor initializes view components and the database
+         * @param db database reference
+         * @param context context
+         * @param mListView list view
+         * @param spin spinner one
+         * @param spin1 spinner 2
+         * @param sv searchview
+         */
         public FirebaseHelper(DatabaseReference db, Context context, ListView mListView, Spinner spin, Spinner spin1, SearchView sv) {
             this.db = db;
             this.c = context;
@@ -66,6 +78,11 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
             this.retrieve();
         }
 
+        /**
+         * Checks if data is saved to firebase
+         * @param donation accepts type donationData
+         * @return boolean if saved or not
+         */
         public Boolean save(donationData donation) {
             if (donation == null) {
                 saved = false;
@@ -82,7 +99,12 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
             return saved;
         }
 
+        /**
+         * @return arraylist if data was saved
+         */
         public ArrayList<donationData> retrieve() {
+            temp.clear();
+            cattemp.clear();
             db.child("Donations").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

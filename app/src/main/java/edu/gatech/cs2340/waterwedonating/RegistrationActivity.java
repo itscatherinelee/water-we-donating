@@ -35,6 +35,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class used for handling registraction activity
+ */
 public class RegistrationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private EditText nameReg;
@@ -94,6 +97,10 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         return;
     }
 
+    /**
+     * Takes user input for username and password and
+     * checks if it is not empty and in proper format.
+     */
     public void RegisterUser(){
         String username = usernameReg.getText().toString().trim();
         String password = passwordReg.getText().toString().trim();

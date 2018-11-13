@@ -28,6 +28,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Class used to retrieve and display user information
+ * upon successful login
+ */
 public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseUser user;

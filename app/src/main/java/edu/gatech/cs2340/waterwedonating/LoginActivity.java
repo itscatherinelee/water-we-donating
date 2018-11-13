@@ -16,6 +16,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Handles the login process and authentication for this app
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private EditText username;

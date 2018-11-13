@@ -14,6 +14,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.InputStream;
 import java.util.List;
 
+/**
+ * Class used to display map and location items
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;

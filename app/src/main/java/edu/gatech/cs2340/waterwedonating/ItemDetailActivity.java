@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Class used store and organize location information
+ */
 public class ItemDetailActivity extends Activity{
 
     private TextView key1;

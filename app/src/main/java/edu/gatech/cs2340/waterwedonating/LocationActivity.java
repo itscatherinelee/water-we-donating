@@ -29,6 +29,9 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * Class used to find and create donation locations
+ */
 public class LocationActivity extends Activity implements OnItemClickListener {
 
     private Button backButton;
