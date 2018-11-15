@@ -52,6 +52,7 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
     private DatabaseReference myRef;
     private FirebaseUser user;
     private ArrayList<userInformation> localData = new ArrayList<>();
+    boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,11 +107,9 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         String password = passwordReg.getText().toString().trim();
         if (TextUtils.isEmpty(username)){
             Toast.makeText(this, "User name is Empty", Toast.LENGTH_SHORT).show();
-            return;
         }
         if (TextUtils.isEmpty(password)){
             Toast.makeText(this, "Password is Empty", Toast.LENGTH_SHORT).show();
-            return;
         }
         if (android.util.Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
             register(username, password);
@@ -119,15 +118,21 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         } else {
             Toast.makeText(RegistrationActivity.this, "Invalid Format, Try Again", Toast.LENGTH_SHORT).show();
         }
-
     }
-    private void register(String username, String password) {
+
+    /**
+     * @param username accepts username
+     * @param password accepts password
+     * @return if information added
+     */
+    public boolean register(String username, String password) {
         mAuth.createUserWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         try {
                             if (task.isSuccessful()) {
+                                flag = true;
                                 userInformation users = new userInformation(type, nameReg.getText().toString(), usernameReg.getText().toString(), user.getUid());
                                 localData.add(users);
                                 myRef.child("users").child(user.getUid()).setValue(users);
@@ -139,12 +144,15 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed, Try Again", Toast.LENGTH_SHORT).show();
+                                flag = false;
                             }
                         } catch (Exception e){
                             e.printStackTrace();
                         }
                     }
                 });
+        return flag;
     }
+
 
 }
