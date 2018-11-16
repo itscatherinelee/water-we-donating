@@ -14,10 +14,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.InputStream;
 import java.util.List;
 
+/**
+ * Class used to display map and location items
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    private GoogleMap mMap;
-    private List<String[]> dataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
         /*LatLng sydney = new LatLng(-34, 151);
@@ -50,11 +50,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         InputStream inputStream = getResources().openRawResource(R.raw.locationdata);
         LocationReader locationReader = new LocationReader(inputStream);
-        dataList = locationReader.read();
+        List<String[]> dataList = locationReader.read();
 
         for(int i = 1; i < dataList.size(); i++) {
             String[] locationData = dataList.get(i);
-            LatLng loc = new LatLng(Double.parseDouble(locationData[2]),Double.parseDouble(locationData[3]));
+            LatLng loc = new LatLng(Double.parseDouble(locationData[2]),
+                    Double.parseDouble(locationData[3]));
             mMap.addMarker(new MarkerOptions().position(loc).title(locationData[1])
                     .snippet(locationData[9]).icon(BitmapDescriptorFactory
                             .defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));

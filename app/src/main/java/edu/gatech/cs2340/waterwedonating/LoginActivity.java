@@ -16,13 +16,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Handles the login process and authentication for this app
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
-    private Button login;
-    private TextView info;
-    private Button registration;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
@@ -34,9 +34,9 @@ public class LoginActivity extends AppCompatActivity {
 
         username = findViewById(R.id.Names_reg);
         password = findViewById(R.id.pass_reg);
-        login = findViewById(R.id.btn_login);
-        info = findViewById(R.id.txt_info);
-        registration = findViewById(R.id.btn_registerhere);
+        Button login = findViewById(R.id.btn_login);
+        TextView info = findViewById(R.id.txt_info);
+        Button registration = findViewById(R.id.btn_registerhere);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
@@ -59,7 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         String userName = username.getText().toString().trim();
         String passWord = password.getText().toString().trim();
         if((userName.isEmpty() || passWord.isEmpty())) {
-            Toast.makeText(LoginActivity.this, "Login Failed. Try Again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Login Failed. Try Again",
+                    Toast.LENGTH_SHORT).show();
         }
         if (android.util.Patterns.EMAIL_ADDRESS.matcher(userName).matches()) {
             logon(userName, passWord);
@@ -69,15 +70,18 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     private void logon(final String userName, String passWord) {
-        mAuth.signInWithEmailAndPassword(userName, passWord).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(userName, passWord).addOnCompleteListener(this,
+                new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful() ) {
                     currentUser = mAuth.getCurrentUser();
                     finish();
-                    startActivity(new Intent(LoginActivity.this, LocationActivity.class));
+                    startActivity(new Intent(LoginActivity.this,
+                            LocationActivity.class));
                 } else {
-                    Toast.makeText(LoginActivity.this, "Login Failed. Try Again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,
+                            "Login Failed. Try Again", Toast.LENGTH_SHORT).show();
                 }
             }
         });

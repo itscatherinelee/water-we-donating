@@ -37,10 +37,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
-public class donationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+/**
+ * Class used to track all donations
+ */
+public class donationActivity extends AppCompatActivity
 
-    //******************Inner class to add and retrieve data from firebase****************************
+        implements AdapterView.OnItemSelectedListener {
+
+    //******************Inner class to add and retrieve data from firebase*************************
     public class FirebaseHelper {
 
         DatabaseReference db;
@@ -56,7 +62,17 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
         Spinner spin, spin1;
         String categoryChoice = "";
 
-        public FirebaseHelper(DatabaseReference db, Context context, ListView mListView, Spinner spin, Spinner spin1, SearchView sv) {
+        /**
+         * Constructor initializes view components and the database
+         * @param db database reference
+         * @param context context
+         * @param mListView list view
+         * @param spin spinner one
+         * @param spin1 spinner 2
+         * @param sv searchview
+         */
+        public FirebaseHelper(DatabaseReference db, Context context, ListView mListView,
+                              Spinner spin, Spinner spin1, SearchView sv) {
             this.db = db;
             this.c = context;
             this.mListView = mListView;
@@ -66,6 +82,11 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
             this.retrieve();
         }
 
+        /**
+         * Checks if data is saved to firebase
+         * @param donation accepts type donationData
+         * @return boolean if saved or not
+         */
         public Boolean save(donationData donation) {
             if (donation == null) {
                 saved = false;
@@ -82,33 +103,50 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
             return saved;
         }
 
+        /**
+         * @return arraylist if data was saved
+         */
         public ArrayList<donationData> retrieve() {
+            temp.clear();
+            cattemp.clear();
             db.child("Donations").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     dd.clear();
-                    if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
+                    if (dataSnapshot.exists() && (dataSnapshot.getChildrenCount() > 0)) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
                             donationData donate = ds.getValue(donationData.class);
                             dd.add(donate);
                         }
-                        cattemp.addAll(Arrays.asList("All Categories","Clothing","Shoes", "Boots", "Outerwear", "Books","Electronics","Sports", "Toys"
-                                ,"Games", "Media","Housewares","Collectibles","Tools","Domestics","Furniture","Non-Perishable Foods","Other"));
-                        temp.addAll(Arrays.asList("All Locations","AFD Station 4", "Boys & Girls Club W.W. Woolfolk"
-                                , "Pathway Upper Room Christian Ministries", "Pavilion of Hope Inc","D&D Convenience Store", "Keep North Fulton Beautiful"));
+                        cattemp.addAll(Arrays.asList("All Categories","Clothing","Shoes", "Boots",
+                                "Outerwear", "Books","Electronics","Sports", "Toys"
+                                ,"Games", "Media","Housewares","Collectibles","Tools","Domestics",
+                                "Furniture","Non-Perishable Foods","Other"));
+                        temp.addAll(Arrays.asList("All Locations","AFD Station 4",
+                                "Boys & Girls Club W.W. Woolfolk"
+                                , "Pathway Upper Room Christian Ministries",
+                                "Pavilion of Hope Inc","D&D Convenience Store",
+                                "Keep North Fulton Beautiful"));
 
-                        final ArrayAdapter adapter1 = new ArrayAdapter(donationActivity.this,android.R.layout.simple_spinner_item, temp);
-                        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        final ArrayAdapter adapter1 = new ArrayAdapter(donationActivity.this,
+                                android.R.layout.simple_spinner_item, temp);
+                        adapter1.setDropDownViewResource(
+                                android.R.layout.simple_spinner_dropdown_item);
                         spin.setAdapter(adapter1);
-                        ArrayAdapter adapter2 = new ArrayAdapter(donationActivity.this,android.R.layout.simple_spinner_item, cattemp);
-                        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        ArrayAdapter adapter2 = new ArrayAdapter(donationActivity.this,
+                                android.R.layout.simple_spinner_item, cattemp);
+                        adapter2.setDropDownViewResource(
+                                android.R.layout.simple_spinner_dropdown_item);
                         spin1.setAdapter(adapter2);
                         spin1.setVisibility(View.GONE);
 
                         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view,
+                                                       int position, long id) {
                                 holder.clear();
-                                String locationChoice = parent.getItemAtPosition(position).toString();
+                                String locationChoice =
+                                        parent.getItemAtPosition(position).toString();
                                 if (locationChoice.equals("All Locations")) {
                                     spin1.setVisibility(View.VISIBLE);
                                     for (int i = 0; i < dd.size(); i++) {
@@ -132,18 +170,22 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                                         }
                                     });
 
-                                    spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    spin1.setOnItemSelectedListener(
+                                            new AdapterView.OnItemSelectedListener() {
 
                                         @Override
-                                        public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                                        public void onItemSelected(AdapterView<?> parent, View view,
+                                                                   int position, long l) {
                                             cat.clear();
                                             adapter = new CustomAdapter(c, holder);
                                             mListView.setAdapter(adapter);
-                                            categoryChoice = parent.getItemAtPosition(position).toString();
+                                            categoryChoice =
+                                                    parent.getItemAtPosition(position).toString();
                                             if (categoryChoice.equals("All Categories")) {
                                                 adapter = new CustomAdapter(c, holder);
                                                 mListView.setAdapter(adapter);
-                                                sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                                sv.setOnQueryTextListener(
+                                                        new SearchView.OnQueryTextListener() {
                                                     @Override
                                                     public boolean onQueryTextSubmit(String s) {
                                                         return false;
@@ -159,13 +201,15 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                                                 });
                                             } else {
                                                 for (int i = 0; i < holder.size(); i++) {
-                                                    if (holder.get(i).getCategory().equals(categoryChoice)) {
+                                                    if (holder.get(i).getCategory().equals(
+                                                            categoryChoice)) {
                                                         cat.add(holder.get(i));
                                                     }
                                                 }
                                                 adapter = new CustomAdapter(c, cat);
                                                 mListView.setAdapter(adapter);
-                                                sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                                sv.setOnQueryTextListener(
+                                                        new SearchView.OnQueryTextListener() {
                                                     @Override
                                                     public boolean onQueryTextSubmit(String s) {
                                                         return false;
@@ -197,7 +241,9 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                                         }
                                     }
                                     if (holder.isEmpty()) {
-                                        Toast.makeText(donationActivity.this, "No donation found for " + locationChoice, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(donationActivity.this,
+                                                "No donation found for " + locationChoice,
+                                                Toast.LENGTH_SHORT).show();
                                     }
                                     adapter = new CustomAdapter(c, holder);
                                     mListView.setAdapter(adapter);
@@ -216,18 +262,22 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                                             return false;
                                         }
                                     });
-                                    spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    spin1.setOnItemSelectedListener(
+                                            new AdapterView.OnItemSelectedListener() {
 
                                         @Override
-                                        public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                                        public void onItemSelected(AdapterView<?> parent, View view,
+                                                                   int position, long l) {
                                             cat.clear();
                                             adapter = new CustomAdapter(c, holder);
                                             mListView.setAdapter(adapter);
-                                            categoryChoice = parent.getItemAtPosition(position).toString();
+                                            categoryChoice =
+                                                    parent.getItemAtPosition(position).toString();
                                             if (categoryChoice.equals("All Categories")) {
                                                 adapter = new CustomAdapter(c, holder);
                                                 mListView.setAdapter(adapter);
-                                                sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                                sv.setOnQueryTextListener(
+                                                        new SearchView.OnQueryTextListener() {
                                                     @Override
                                                     public boolean onQueryTextSubmit(String s) {
                                                         return false;
@@ -243,13 +293,15 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                                                 });
                                             } else {
                                                 for (int i = 0; i < holder.size(); i++) {
-                                                    if (holder.get(i).getCategory().equals(categoryChoice)) {
+                                                    if (holder.get(i).getCategory().equals(
+                                                            categoryChoice)) {
                                                         cat.add(holder.get(i));
                                                     }
                                                 }
                                                 adapter = new CustomAdapter(c, cat);
                                                 mListView.setAdapter(adapter);
-                                                sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                                sv.setOnQueryTextListener(
+                                                        new SearchView.OnQueryTextListener() {
                                                     @Override
                                                     public boolean onQueryTextSubmit(String s) {
                                                         return false;
@@ -275,6 +327,7 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                                 }
                             }
 
+                            @Override
                             public void onNothingSelected(AdapterView<?> parent) {
                                 adapter = new CustomAdapter(c, dd);
                                 mListView.setAdapter(adapter);
@@ -295,7 +348,8 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                     Log.d("mTAG", databaseError.getMessage());
-                    Toast.makeText(c, "ERROR " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(c, "ERROR " + databaseError.getMessage(),
+                            Toast.LENGTH_LONG).show();
 
                 }
             });
@@ -304,10 +358,10 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
         }
 
     }
-//*********************************Second class used to add popup data to listview*******************
+//*********************************Second class used to add popup data to listview*****************
         class CustomAdapter extends BaseAdapter implements Filterable {
         Context c;
-        ArrayList<donationData> donor;
+        List<donationData> donor;
         TextView viewItem, viewLocation, viewFull,viewValue, viewCategory, viewTime;
         Button bClose;
         Dialog e;
@@ -334,20 +388,23 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(c).inflate(R.layout.activity_donationlayout, parent, false);
+            View convertView1 = convertView;
+            if (convertView1 == null) {
+                convertView1 = LayoutInflater.from(c).inflate(R.layout.activity_donationlayout,
+                        parent, false);
             }
 
-            TextView nameTextView = convertView.findViewById(R.id.nameTextView);
-            TextView descriptionTextView = convertView.findViewById(R.id.descriptionTextView2);
+            TextView nameTextView = convertView1.findViewById(R.id.nameTextView);
+            TextView descriptionTextView = convertView1.findViewById(R.id.descriptionTextView2);
 
             final donationData s = (donationData) this.getItem(position);
 
             nameTextView.setText(s.getShortDescription().toUpperCase());
-            String setup = "Time Donated: "+s.getTimestamp()+"           Location: "+s.getLocation();
+            String setup = "Time Donated: "+s.getTimestamp()
+                    +"           Location: "+s.getLocation();
             descriptionTextView.setText(setup);
 
-            convertView.setOnClickListener(new View.OnClickListener() {
+            convertView1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     e = new Dialog(donationActivity.this);
@@ -375,7 +432,7 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                     });
                 }
             });
-            return convertView;
+            return convertView1;
         }
 
     @Override
@@ -389,12 +446,13 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
 
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
+            CharSequence charSequence1 = charSequence;
             FilterResults filters = new FilterResults();
-            if (charSequence != null && charSequence.length() > 0) {
-                ArrayList<donationData> filteredItems = new ArrayList<>();
-                charSequence = charSequence.toString().toUpperCase();
+            if (charSequence1 != null && charSequence1.length() > 0) {
+                List<donationData> filteredItems = new ArrayList<>();
+                charSequence1 = charSequence1.toString().toUpperCase();
                 for (int i = 0; i < donor.size(); i++) {
-                    if (donor.get(i).getShortDescription().toUpperCase().contains(charSequence)) {
+                    if (donor.get(i).getShortDescription().toUpperCase().contains(charSequence1)) {
                         filteredItems.add(donor.get(i));
                     }
                 }
@@ -434,7 +492,6 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
     Spinner s2;
     Button search;
     ArrayList<String> loc = new ArrayList<>();
-    private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
 
     ArrayList<String> items = new ArrayList<>();
@@ -443,7 +500,7 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference("Donations");
         Spinner spin4 = (Spinner) findViewById(R.id.locationSelecter);
         Spinner spin5 = (Spinner) findViewById(R.id.categorySearch);
@@ -488,21 +545,26 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
         timestamp.setText(dateStr);
 
         loc.addAll(Arrays.asList("AFD Station 4", "Boys & Girls Club W.W. Woolfolk"
-                , "Pathway Upper Room Christian Ministries", "Pavilion of Hope Inc","D&D Convenience Store", "Keep North Fulton Beautiful"));
+                , "Pathway Upper Room Christian Ministries", "Pavilion of Hope Inc",
+                "D&D Convenience Store", "Keep North Fulton Beautiful"));
 
         Spinner spin1 = d.findViewById(R.id.locationSelecter);
         spin1.setOnItemSelectedListener(this);
 
-        ArrayAdapter adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, loc);
+        ArrayAdapter adapter1 = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, loc);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin1.setAdapter(adapter1);
 
-        items.addAll(Arrays.asList("Clothing","Shoes", "Boots", "Outerwear", "Books","Electronics","Sports", "Toys"
-                ,"Games", "Media","Housewares","Collectibles","Tools","Domestics","Furniture","Non-Perishable Foods","Other"));
+        items.addAll(Arrays.asList("Clothing","Shoes", "Boots", "Outerwear", "Books","Electronics",
+                "Sports", "Toys"
+                ,"Games", "Media","Housewares","Collectibles","Tools","Domestics","Furniture",
+                "Non-Perishable Foods","Other"));
         Spinner spin2 = d.findViewById(R.id.categorySpinner);
         spin2.setOnItemSelectedListener(this);
 
-        ArrayAdapter adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, items);
+        ArrayAdapter adapter2 = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, items);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin2.setAdapter(adapter2);
 
@@ -517,19 +579,23 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
             @Override
             public void onClick(View v) {
                 String value = "";
-                if (shortDescript.getText().toString().length() > 2 || fullDescript.getText().toString().length() > 2) {
+                if (shortDescript.getText().toString().length() > 2
+                        || fullDescript.getText().toString().length() > 2) {
                     shortDescrip = shortDescript.getText().toString();
                     fullDescrip = fullDescript.getText().toString();
                 } else {
-                    Toast.makeText(donationActivity.this, "Description too short", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(donationActivity.this,
+                            "Description too short", Toast.LENGTH_SHORT).show();
                 }
                 if (itemValue.getText().toString().matches("^[0-9,.$]*$")) {
                     value = itemValue.getText().toString();
                 } else {
-                    Toast.makeText(donationActivity.this, "Invalid amount", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(donationActivity.this,
+                            "Invalid amount", Toast.LENGTH_SHORT).show();
                 }
 
-                donationData don8 = new donationData(dateStr, location, shortDescrip, fullDescrip, value, category);
+                donationData don8 = new donationData(dateStr, location,
+                        shortDescrip, fullDescrip, value, category);
 
                     if (helper.save(don8)) {
                         shortDescript.setText("");
@@ -564,7 +630,6 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
     }
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
-        return;
     }
 
 }

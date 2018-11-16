@@ -28,30 +28,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Class used store and organize location information
+ */
 public class ItemDetailActivity extends Activity{
 
-    private TextView key1;
-    private TextView value1;
-    private TextView key2;
-    private TextView value2;
-    private TextView key3;
-    private TextView value3;
-    private TextView key4;
-    private TextView value4;
-    private TextView key5;
-    private TextView value5;
-    private TextView key6;
-    private TextView value6;
-    private TextView key7;
-    private TextView value7;
-    private TextView key8;
-    private TextView value8;
-    private TextView key9;
-    private TextView value9;
-    private TextView key10;
-    private TextView value10;
-    private TextView key11;
-    private TextView value11;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private Button addDonation;
@@ -63,28 +44,28 @@ public class ItemDetailActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listitem);
 
-            key1 = findViewById(R.id.key1);
-        value1 = findViewById(R.id.value1);
-        key2 = findViewById(R.id.key2);
-        value2 = findViewById(R.id.value2);
-        key3 = findViewById(R.id.key3);
-        value3 = findViewById(R.id.value3);
-        key4 = findViewById(R.id.key4);
-        value4 = findViewById(R.id.value4);
-        key5 = findViewById(R.id.key5);
-        value5 = findViewById(R.id.value5);
-        key6 = findViewById(R.id.key6);
-        value6 = findViewById(R.id.value6);
-        key7 = findViewById(R.id.key7);
-        value7 = findViewById(R.id.value7);
-        key8 = findViewById(R.id.key8);
-        value8 = findViewById(R.id.value8);
-        key9 = findViewById(R.id.key9);
-        value9 = findViewById(R.id.value9);
-        key10 = findViewById(R.id.key10);
-        value10 = findViewById(R.id.value10);
-        key11 = findViewById(R.id.key11);
-        value11 = findViewById(R.id.value11);
+        TextView key1 = findViewById(R.id.key1);
+        TextView value1 = findViewById(R.id.value1);
+        TextView key2 = findViewById(R.id.key2);
+        TextView value2 = findViewById(R.id.value2);
+        TextView key3 = findViewById(R.id.key3);
+        TextView value3 = findViewById(R.id.value3);
+        TextView key4 = findViewById(R.id.key4);
+        TextView value4 = findViewById(R.id.value4);
+        TextView key5 = findViewById(R.id.key5);
+        TextView value5 = findViewById(R.id.value5);
+        TextView key6 = findViewById(R.id.key6);
+        TextView value6 = findViewById(R.id.value6);
+        TextView key7 = findViewById(R.id.key7);
+        TextView value7 = findViewById(R.id.value7);
+        TextView key8 = findViewById(R.id.key8);
+        TextView value8 = findViewById(R.id.value8);
+        TextView key9 = findViewById(R.id.key9);
+        TextView value9 = findViewById(R.id.value9);
+        TextView key10 = findViewById(R.id.key10);
+        TextView value10 = findViewById(R.id.value10);
+        TextView key11 = findViewById(R.id.key11);
+        TextView value11 = findViewById(R.id.value11);
 
         InputStream inputStream = getResources().openRawResource(R.raw.locationdata);
         LocationReader locationReader = new LocationReader(inputStream);

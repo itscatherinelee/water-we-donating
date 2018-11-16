@@ -26,40 +26,35 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class used to retrieve and display user information
+ * upon successful login
+ */
 public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseUser user;
-    private TextView userNameOrEmail;
-    private TextView Uid;
-    private Button logout;
-    private TextView names;
-    private TextView types;
-    private Button viewLocation;
-    private FirebaseDatabase mFirebaseDatabase;
-    private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference myRef;
-    private String userID;
-    ArrayList<userInformation> data;
+    List<userInformation> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        types = findViewById(R.id.typeE);
-        names = findViewById(R.id.nameId);
-        userNameOrEmail = findViewById(R.id.userName);
-        Uid = findViewById(R.id.uid1);
-        logout = findViewById(R.id.btn_logout);
-        viewLocation = findViewById(R.id.viewLocation);
-        mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference();
+        TextView types = findViewById(R.id.typeE);
+        TextView names = findViewById(R.id.nameId);
+        TextView userNameOrEmail = findViewById(R.id.userName);
+        TextView uid = findViewById(R.id.uid1);
+        Button logout = findViewById(R.id.btn_logout);
+        Button viewLocation = findViewById(R.id.viewLocation);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = mFirebaseDatabase.getReference();
         FirebaseUser user = mAuth.getCurrentUser();
-        userID = user.getUid();
+        String userID = user.getUid();
 
         Intent intent = getIntent();
         data = (ArrayList<userInformation>) intent.getSerializableExtra("userData");
@@ -71,13 +66,14 @@ public class ProfileActivity extends AppCompatActivity {
                 names.setText(name);
                 types.setText(type);
                 userNameOrEmail.setText(emailorname);
-                Uid.setText(userID);
+                uid.setText(userID);
             }
 
         }
 
 
         logout.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
                 startActivity(intent);
@@ -85,6 +81,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         viewLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
                 startActivity(new Intent(ProfileActivity.this, LocationActivity.class));
             }

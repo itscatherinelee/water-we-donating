@@ -29,18 +29,13 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * Class used to find and create donation locations
+ */
 public class LocationActivity extends Activity implements OnItemClickListener {
 
-    private Button backButton;
-    private ListView locationList;
-    private ItemArrayAdapter itemArrayAdapter;
-    private List<String[]> dataList;
     private Button addDonation;
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference myRef;
-    private FirebaseAuth mAuth;
     private FirebaseUser user;
-    private Button mapButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +43,16 @@ public class LocationActivity extends Activity implements OnItemClickListener {
         setContentView(R.layout.activity_location);
 
         addDonation = findViewById(R.id.donations);
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference("users");
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = mFirebaseDatabase.getReference("users");
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
-        mapButton = findViewById(R.id.mapButton);
-        backButton = findViewById(R.id.backButton);
-        locationList = findViewById(R.id.locationList);
-        itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
+        Button mapButton = findViewById(R.id.mapButton);
+        Button backButton = findViewById(R.id.backButton);
+        ListView locationList = findViewById(R.id.locationList);
+        ItemArrayAdapter itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(),
+                R.layout.item_layout);
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -86,9 +82,9 @@ public class LocationActivity extends Activity implements OnItemClickListener {
 
         InputStream inputStream = getResources().openRawResource(R.raw.locationdata);
         LocationReader locationReader = new LocationReader(inputStream);
-        dataList = locationReader.read();
+        List<String[]> dataList = locationReader.read();
 
-        for(String[] data:dataList ) {
+        for(String[] data: dataList) {
             itemArrayAdapter.add(data);
         }
 
@@ -121,6 +117,7 @@ public class LocationActivity extends Activity implements OnItemClickListener {
     }
 
 
+    @Override
     public void onItemClick(AdapterView<?> l, View v, int position, long id) {
         Intent intent = new Intent(LocationActivity.this, ItemDetailActivity.class);
         intent.putExtra("position", position);

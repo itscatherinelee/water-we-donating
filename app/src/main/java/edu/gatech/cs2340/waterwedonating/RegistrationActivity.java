@@ -35,15 +35,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RegistrationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+/**
+ * Class used for handling registration activity
+ */
+public class RegistrationActivity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener{
 
     private EditText nameReg;
     private EditText usernameReg;
     private EditText passwordReg;
     private String type;
-    private TextView infoReg;
-    private Button signUp;
-    private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
@@ -60,7 +61,8 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         Spinner spin = (Spinner) findViewById(R.id.spinner1);
         spin.setOnItemSelectedListener(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, userType);
+        ArrayAdapter adapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, userType);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adapter);
 
@@ -69,11 +71,11 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         usernameReg = findViewById(R.id.userName_reg);
         passwordReg = findViewById(R.id.pass_reg);
         type = spin.getSelectedItem().toString();
-        infoReg = findViewById(R.id.txt_infoReg);
-        signUp = findViewById(R.id.btn_signUp);
+        TextView infoReg = findViewById(R.id.txt_infoReg);
+        Button signUp = findViewById(R.id.btn_signUp);
 
         mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
         user = mAuth.getCurrentUser();
 
@@ -91,9 +93,12 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
     }
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
-        return;
     }
 
+    /**
+     * Takes user input for username and password and
+     * checks if it is not empty and in proper format.
+     */
     public void RegisterUser(){
         String username = usernameReg.getText().toString().trim();
         String password = passwordReg.getText().toString().trim();
@@ -110,7 +115,8 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         } else if (!username.contains("@")) {
             register(username + "@email.com", password);
         } else {
-            Toast.makeText(RegistrationActivity.this, "Invalid Format, Try Again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegistrationActivity.this, "Invalid Format, Try Again",
+                    Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -121,17 +127,23 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         try {
                             if (task.isSuccessful()) {
-                                userInformation users = new userInformation(type, nameReg.getText().toString(), usernameReg.getText().toString(), user.getUid());
+                                userInformation users = new userInformation(type,
+                                        nameReg.getText().toString(),
+                                        usernameReg.getText().toString(), user.getUid());
                                 localData.add(users);
                                 myRef.child("users").child(user.getUid()).setValue(users);
-                                Toast.makeText(RegistrationActivity.this, "Registration Successful",
+                                Toast.makeText(RegistrationActivity.this,
+                                        "Registration Successful",
                                         Toast.LENGTH_SHORT).show();
                                 finish();
-                                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                                Intent intent = new Intent(getApplicationContext(),
+                                        ProfileActivity.class);
                                 intent.putExtra("userData",localData);
                                 startActivity(intent);
                             } else {
-                                Toast.makeText(RegistrationActivity.this, "Registration Failed, Try Again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistrationActivity.this,
+                                        "Registration Failed, Try Again",
+                                        Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e){
                             e.printStackTrace();

@@ -9,6 +9,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Container class for donation locations
+ */
 public class ItemArrayAdapter extends ArrayAdapter{
     private List<String[]> dataList = new ArrayList<String[]>();
 
@@ -17,10 +20,20 @@ public class ItemArrayAdapter extends ArrayAdapter{
         TextView name;
     }
 
+    /**
+     * Constructor initializes parameters to the parent constructor
+     * @param context accepts context
+     * @param textViewResourceId accepts view resource id
+     */
     public ItemArrayAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId);
     }
 
+    /**
+     * Stores information associated with each location
+     * @param object string array of object
+     * locations and their information
+     */
     public void add(String[] object) {
         dataList.add(object);
         super.add(object);
