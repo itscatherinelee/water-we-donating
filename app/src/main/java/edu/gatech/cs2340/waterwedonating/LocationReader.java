@@ -13,7 +13,11 @@ public class LocationReader {
     InputStream inputStream;
 
     /**
+<<<<<<< HEAD
      * Constructor used to initialize InputStream
+=======
+     * COnstructor used to initialize InputStream
+>>>>>>> master
      * @param inputStream accepts InputStream
      */
     public LocationReader(InputStream inputStream) {

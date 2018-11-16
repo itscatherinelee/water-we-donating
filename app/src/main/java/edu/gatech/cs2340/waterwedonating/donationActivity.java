@@ -42,7 +42,11 @@ import java.util.List;
 /**
  * Class used to track all donations
  */
+<<<<<<< HEAD
 public class donationActivity extends AppCompatActivity
+=======
+public class donationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+>>>>>>> master
 
         implements AdapterView.OnItemSelectedListener {
 
@@ -71,8 +75,12 @@ public class donationActivity extends AppCompatActivity
          * @param spin1 spinner 2
          * @param sv searchview
          */
+<<<<<<< HEAD
         public FirebaseHelper(DatabaseReference db, Context context, ListView mListView,
                               Spinner spin, Spinner spin1, SearchView sv) {
+=======
+        public FirebaseHelper(DatabaseReference db, Context context, ListView mListView, Spinner spin, Spinner spin1, SearchView sv) {
+>>>>>>> master
             this.db = db;
             this.c = context;
             this.mListView = mListView;

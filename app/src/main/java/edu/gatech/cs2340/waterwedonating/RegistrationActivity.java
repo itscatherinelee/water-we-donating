@@ -36,10 +36,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
+<<<<<<< HEAD
  * Class used for handling registration activity
  */
 public class RegistrationActivity extends AppCompatActivity
         implements AdapterView.OnItemSelectedListener{
+=======
+ * Class used for handling registraction activity
+ */
+public class RegistrationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+>>>>>>> master
 
     private EditText nameReg;
     private EditText usernameReg;

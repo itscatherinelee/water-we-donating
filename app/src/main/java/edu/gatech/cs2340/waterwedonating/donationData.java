@@ -1,7 +1,10 @@
 package edu.gatech.cs2340.waterwedonating;
 
+<<<<<<< HEAD
 import android.support.annotation.Nullable;
 
+=======
+>>>>>>> master
 /**
  * Object class containing data for each donation
  */
@@ -30,8 +33,12 @@ public class donationData {
      * @param value represents value amount of donation
      * @param category represents donation category
      */
+<<<<<<< HEAD
     public donationData(String timestamp, String location, String shortDescription,
                         String fullDescription, String value, String category) {
+=======
+    public donationData(String timestamp, String location, String shortDescription, String fullDescription, String value, String category) {
+>>>>>>> master
         this.timestamp = timestamp;
         this.location = location;
         this.shortDescription = shortDescription;
@@ -41,7 +48,11 @@ public class donationData {
     }
 
     /**
+<<<<<<< HEAD
      * Constructor accepting only two parameters
+=======
+     * COnstructor accepting only two parameters
+>>>>>>> master
      * @param timestamp represents when donation was made
      * @param category represents donation category
      */
