@@ -46,7 +46,9 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    LoginUser();
+                String userName = username.getText().toString().trim();
+                String passWord = password.getText().toString().trim();
+                LoginUser(userName, passWord);
             }
         });
 
@@ -58,18 +60,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void LoginUser() {
-        String userName = username.getText().toString().trim();
-        String passWord = password.getText().toString().trim();
+    private boolean LoginUser(String userName, String passWord) {
+        boolean flag = true;
         if((userName.isEmpty() || passWord.isEmpty())) {
+            flag = false;
             Toast.makeText(LoginActivity.this, "Login Failed. Try Again", Toast.LENGTH_SHORT).show();
         }
         if (android.util.Patterns.EMAIL_ADDRESS.matcher(userName).matches()) {
+            flag = true;
             logon(userName, passWord);
         } else if (!userName.contains("@")) {
+            flag = true;
             logon(userName + "@email.com", passWord);
         }
-
+        return flag;
     }
     private void logon(final String userName, String passWord) {
         mAuth.signInWithEmailAndPassword(userName, passWord).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
