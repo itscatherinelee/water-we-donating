@@ -17,7 +17,11 @@ public class LocationReader {
      * @param inputStream accepts InputStream
      */
     public LocationReader(InputStream inputStream) {
-        this.inputStream = inputStream;
+        if (inputStream == null) {
+            throw new IllegalArgumentException("inputStream cannot be null.");
+        } else {
+            this.inputStream = inputStream;
+        }
     }
 
     /**
