@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.waterwedonating;
 
+
 public class donationData {
     private String timestamp;
     private String location;
