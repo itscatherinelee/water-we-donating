@@ -125,7 +125,7 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
      * @param password accepts password
      * @return if information added
      */
-    public boolean register(String username, String password) {
+    private boolean register(String username, String password) {
         mAuth.createUserWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
