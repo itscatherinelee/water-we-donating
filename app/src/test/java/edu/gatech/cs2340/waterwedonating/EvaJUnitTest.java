@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
+/**
+ * Junit test for constructor of location reader.
+ */
 public class EvaJUnitTest {
 
     private InputStream testingInput = null;
