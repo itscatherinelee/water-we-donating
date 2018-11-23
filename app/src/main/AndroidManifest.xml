@@ -31,6 +31,7 @@
         <activity android:name=".LocationActivity" />
         <activity android:name=".ItemDetailActivity" />
         <activity android:name=".donationActivity" />
+        <activity android:name=".resetPasswordActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

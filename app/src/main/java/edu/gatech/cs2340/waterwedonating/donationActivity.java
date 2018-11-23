@@ -2,6 +2,8 @@ package edu.gatech.cs2340.waterwedonating;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -24,19 +26,43 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jjoe64.graphview.DefaultLabelFormatter;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Class used to track all donations
@@ -451,11 +477,16 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
     String locationView = "";
     String categoryView = "";
     Button close;
-    Dialog d;
+    Dialog d,x,q;
     SearchView sv;
     Spinner s2;
     Button search;
+    Button closeData;
+    String guest;
+    PieChart py;
+    Button otherDt;
     ArrayList<String> loc = new ArrayList<>();
+    ArrayList<donationData> fetchedData;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
 
@@ -473,6 +504,10 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
         sv = findViewById(R.id.searchView);
         db = FirebaseDatabase.getInstance().getReference();
         helper = new FirebaseHelper(db, this, mListView, spin4, spin5, sv);
+        Intent intent = getIntent();
+        guest = intent.getStringExtra("User");
+        loc.addAll(Arrays.asList("AFD Station 4", "Boys & Girls Club W.W. Woolfolk"
+                , "Pathway Upper Room Christian Ministries", "Pavilion of Hope Inc","D&D Convenience Store", "Keep North Fulton Beautiful"));
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -480,25 +515,156 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
             @Override
             public void onClick(View view) {
                 mListView.smoothScrollToPosition(4);
-                displayInputDialog();
+                if (guest.equals("Guest")) {
+                } else {
+                    displayInputDialog();
+                }
             }
         });
-        FloatingActionButton fab2 = findViewById(R.id.fabSearch);
+        FloatingActionButton fab2 = findViewById(R.id.viewData);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displaySearchDialog();
+                int afd = 0;
+                int bng = 0 ;
+                int pathway = 0;
+                int dd = 0;
+                int pHope = 0;
+                int fulton = 0;
+                fetchedData = helper.retrieve();
+                if (fetchedData.size() > 0) {
+                    for (int i = 0; i < fetchedData.size(); i++) {
+                        if (fetchedData.get(i).getLocation().equals("AFD Station 4")) {
+                            afd++;
+                        } else if (fetchedData.get(i).getLocation().equals("Boys & Girls Club W.W. Woolfolk")) {
+                            bng++;
+                        } else if (fetchedData.get(i).getLocation().equals("Pathway Upper Room Christian Ministries")) {
+                            pathway++;
+                        } else if (fetchedData.get(i).getLocation().equals("Pavilion of Hope Inc")) {
+                            pHope++;
+                        } else if (fetchedData.get(i).getLocation().equals("D&D Convenience Store")) {
+                            dd++;
+                        } else if (fetchedData.get(i).getLocation().equals("Keep North Fulton Beautiful")) {
+                            fulton++;
+                        }
+                    }
+                }
+                float[] count = {afd, bng, pathway, pHope, dd, fulton};
+                ArrayList<PieEntry> yValues = new ArrayList<>();
+                yValues.clear();
+                displaySearchDialog(yValues, count);
             }
         });
     }
-    private void displaySearchDialog() {
+    private void displaySearchDialog(ArrayList<PieEntry> yValues, float[] count) {
+        x = new Dialog(this);
+        x.setTitle("Report");
+        x.setContentView(R.layout.chart_activity);
+        otherDt = x.findViewById(R.id.otherData);
 
+        py = x.findViewById(R.id.idPieChart);
+        py.setUsePercentValues(true);
+        py.setExtraOffsets(5, 10,5,5);
+        py.setDragDecelerationFrictionCoef(0.95f);
+        py.setDrawHoleEnabled(true);
+        py.setHoleColor(Color.WHITE);
+        py.setTransparentCircleRadius(61f);
+        py.setCenterText("Donation Stats");
+        py.setHoleColor(Color.BLACK);
+        py.setCenterTextColor(Color.WHITE);
+        Description d = new Description();
+        d.setText("Donations per location");
+        py.setDescription(d);
+        yValues.add(new PieEntry(count[0], "AFD"));
+        yValues.add(new PieEntry(count[1], "B&G"));
+        yValues.add(new PieEntry(count[2], "Pathway"));
+        yValues.add(new PieEntry(count[3], "Pavilion"));
+        yValues.add(new PieEntry(count[4], "D&D"));
+        yValues.add(new PieEntry(count[5], "North Fulton"));
+
+        py.animateY(1000, Easing.EaseInOutCubic);
+        PieDataSet dataSet = new PieDataSet(yValues,"");
+        dataSet.setSliceSpace(2f);
+        dataSet.setSelectionShift(5f);
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        PieData data = new PieData(dataSet);
+        data.setValueTextSize(10f);
+        data.setValueTextColor(Color.BLACK);
+        py.setData(data);
+        x.show();
+        otherDt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<Date> last7 = new ArrayList<>();
+                ArrayList<String> stringDate = new ArrayList<>();
+                stringDate.clear();
+                last7.clear();
+                x.dismiss();
+                displayBar(last7, stringDate);
+            }
+        });
+    }
+
+    private void displayBar(ArrayList<Date> last7, ArrayList<String> dates) {
+        q = new Dialog(this);
+        q.setContentView(R.layout.bargraph_activity);
+        closeData = q.findViewById(R.id.dismiss);
+        DateFormat dx = new SimpleDateFormat("MM/dd/yyyy");
+        String date = "";
+        Date days = new Date();
+        for (int i = 0; i < 4; i++) {
+            Calendar cal = GregorianCalendar.getInstance();
+            cal.setTime(new Date());
+            cal.add(Calendar.DAY_OF_YEAR, -i);
+            days = cal.getTime();
+            date = dx.format(days);
+            dates.add(date);
+            last7.add(days);
+        }
+        int day1 = 0;
+        int day2 = 0;
+        int day3 = 0;
+        fetchedData = helper.retrieve();
+        if (fetchedData.size() > 0) {
+            for (int i = 0; i < fetchedData.size(); i++) {
+                if (fetchedData.get(i).getTimestamp().split(" ")[0].equals(dates.get(0))) {
+                    day1++;
+                } else if (fetchedData.get(i).getTimestamp().split(" ")[0].equals(dates.get(1))) {
+                    day2++;
+                } else if (fetchedData.get(i).getTimestamp().split(" ")[0].equals(dates.get(2))) {
+                    day3++;
+                }
+            }
+        }
+        GraphView graph = q.findViewById(R.id.graph);
+        graph.getGridLabelRenderer().setPadding(35);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                new DataPoint(last7.get(2), day3),
+                new DataPoint(last7.get(1), day2),
+                new DataPoint(last7.get(0), day1)
+        });
+        graph.addSeries(series);
+        graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
+        graph.getGridLabelRenderer().setNumHorizontalLabels(3);
+
+
+        graph.getGridLabelRenderer().setHumanRounding(false);
+        fetchedData.clear();
+        q.show();
+        closeData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                q.dismiss();
+            }
+        });
     }
 
     private void displayInputDialog() {
         d = new Dialog(this);
         d.setTitle("Add Donation");
         d.setContentView(R.layout.activity_popupdonation);
+        items.clear();
 
         Long tsLong = System.currentTimeMillis();
         Date date = new Date(tsLong);
@@ -508,9 +674,6 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         dateStr = dateFormat.format(date);
         timestamp.setText(dateStr);
-
-        loc.addAll(Arrays.asList("AFD Station 4", "Boys & Girls Club W.W. Woolfolk"
-                , "Pathway Upper Room Christian Ministries", "Pavilion of Hope Inc","D&D Convenience Store", "Keep North Fulton Beautiful"));
 
         Spinner spin1 = d.findViewById(R.id.locationSelecter);
         spin1.setOnItemSelectedListener(this);
@@ -557,8 +720,8 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                         shortDescript.setText("");
                         fullDescript.setText("");
                         itemValue.setText("");
-
-                        ArrayList<donationData> fetchedData = helper.retrieve();
+                        fetchedData.clear();
+                        fetchedData = helper.retrieve();
                         adapter = new CustomAdapter(donationActivity.this, fetchedData);
                         mListView.setAdapter(adapter);
                         mListView.smoothScrollToPosition(fetchedData.size());
