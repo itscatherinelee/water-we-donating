@@ -125,14 +125,13 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
      * @param password accepts password
      * @return if information added
      */
-    private boolean register(String username, String password) {
+    private void register(String username, String password) {
         mAuth.createUserWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         try {
                             if (task.isSuccessful()) {
-                                flag = true;
                                 userInformation users = new userInformation(type, nameReg.getText().toString(), usernameReg.getText().toString(), user.getUid());
                                 localData.add(users);
                                 myRef.child("users").child(user.getUid()).setValue(users);
@@ -141,17 +140,16 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                                 finish();
                                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                                 intent.putExtra("userData",localData);
+                                intent.putExtra("User","RegisteredUser");
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(RegistrationActivity.this, "Registration Failed, Try Again", Toast.LENGTH_SHORT).show();
-                                flag = false;
                             }
                         } catch (Exception e){
                             e.printStackTrace();
                         }
                     }
                 });
-        return flag;
     }
 
 

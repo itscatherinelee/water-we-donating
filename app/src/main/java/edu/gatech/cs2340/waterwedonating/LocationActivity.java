@@ -44,12 +44,18 @@ public class LocationActivity extends Activity implements OnItemClickListener {
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private Button mapButton;
+    String guest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
+        Intent intent = getIntent();
+        guest = intent.getStringExtra("User");
+        if (guest == null) {
+            guest = "";
+        }
         addDonation = findViewById(R.id.donations);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference("users");
@@ -61,27 +67,29 @@ public class LocationActivity extends Activity implements OnItemClickListener {
         locationList = findViewById(R.id.locationList);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
-                    userInformation users = childDataSnapshot.getValue(userInformation.class);
-                    if (users.getId().equals(user.getUid())) {
-                        if (users.getType().equals("User")){
-                            addDonation.setVisibility(View.GONE);
-                        } else {
-                            addDonation.setVisibility(View.VISIBLE);
+        if (!(guest.equals("Guest"))) {
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+                        userInformation users = childDataSnapshot.getValue(userInformation.class);
+                        if (users.getId().equals(user.getUid())) {
+                            if (users.getType().equals("User")) {
+                                addDonation.setVisibility(View.GONE);
+                            } else {
+                                addDonation.setVisibility(View.VISIBLE);
+                            }
                         }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
+                }
 
-        });
+            });
+        }
 
         Parcelable state = locationList.onSaveInstanceState();
         locationList.setAdapter(itemArrayAdapter);
@@ -102,6 +110,11 @@ public class LocationActivity extends Activity implements OnItemClickListener {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), donationActivity.class);
+                if (guest.equals("Guest")) {
+                    intent.putExtra("User","Guest");
+                } else {
+                    intent.putExtra("User","RegisteredUser");
+                }
                 startActivity(intent);
             }
         });
