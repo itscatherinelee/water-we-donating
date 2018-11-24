@@ -638,7 +638,10 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
             }
         }
         GraphView graph = q.findViewById(R.id.graph);
-        graph.getGridLabelRenderer().setPadding(35);
+        graph.setTitle("Donation History");
+        graph.setTitleColor(Color.RED);
+        graph.setTitleTextSize(50);
+        graph.getGridLabelRenderer().setPadding(40);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
                 new DataPoint(last7.get(2), day3),
                 new DataPoint(last7.get(1), day2),
@@ -720,7 +723,6 @@ public class donationActivity extends AppCompatActivity implements AdapterView.O
                         shortDescript.setText("");
                         fullDescript.setText("");
                         itemValue.setText("");
-                        fetchedData.clear();
                         fetchedData = helper.retrieve();
                         adapter = new CustomAdapter(donationActivity.this, fetchedData);
                         mListView.setAdapter(adapter);
